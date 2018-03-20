@@ -10,15 +10,6 @@ const std::string baseURL = "http://localhost/data/";
 
 void fetchData(std::string url, int fileIdx);
 
-std::uint32_t computeCHC(const char *start, const char *end)
-{
-    std::uint32_t res = 0;
-    for(;start < end; ++start)
-        res = std::uint32_t(*start) + res * 103;
-
-    return res;
-}
-
 void downloadSucceeded(emscripten_fetch_t *fetch)
 {
     printf("Received '%s'\n", fetch->url);
